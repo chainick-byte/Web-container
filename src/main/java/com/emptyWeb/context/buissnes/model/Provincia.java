@@ -1,7 +1,8 @@
-package com.emptyWeb.context.utils;
+package com.emptyWeb.context.buissnes.model;
 
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,47 +14,55 @@ import javax.persistence.TemporalType;
  *
  * @author Claudia Badila
  */
+
+@Embeddable
 @Entity
-@Table(name = "COMUNIDADES_AUTONOMAS")
-public class ComunidadAutonoma {
+@Table(name = "PROVINCIAS")
+public class Provincia {
 
   @Id
-  private Long id_ccaa;
+  private Long id_prov;
 
-  @Column(name = "NOMBRE")
-  private String nombre_ccaa;
+  @Column(name = "NOM_PROVINCIA")
+  private String nombre_prov;
 
-  @Column(name = "F_CREACION")
+  @Column(name = "CREACION_PROVINCIA")
   @Temporal(TemporalType.DATE)
   private Date fecha_creacion;
 
-  @Column(name = "F_MODIFICACION")
+  @Column(name = "MODIFICACION_PROVINCIA")
   @Temporal(TemporalType.DATE)
   private Date fecha_modificacion;
+
+  @Column(name = "USER_PROV_CREATE")
   private String usuario_creacion;
+
+  @Column(name = "USER_PROV_MODIF")
   private String usuario_modificacion;
+
+  @Column(name = "PROV_ESTADO_REGISTRO")
   private int estado_registro;
 
   @Embedded
-  private Provincia provincia;
+  private Municipio provincia;
 
-  public ComunidadAutonoma() {
+  public Provincia() {
   }
 
-  public Long getId_ccaa() {
-    return id_ccaa;
+  public Long getId_prov() {
+    return id_prov;
   }
 
-  public void setId_ccaa(Long id_ccaa) {
-    this.id_ccaa = id_ccaa;
+  public void setId_prov(Long id_prov) {
+    this.id_prov = id_prov;
   }
 
-  public String getNombre_ccaa() {
-    return nombre_ccaa;
+  public String getNombre_prov() {
+    return nombre_prov;
   }
 
-  public void setNombre_ccaa(String nombre_ccaa) {
-    this.nombre_ccaa = nombre_ccaa;
+  public void setNombre_prov(String nombre_prov) {
+    this.nombre_prov = nombre_prov;
   }
 
   public Date getFecha_creacion() {
@@ -96,11 +105,11 @@ public class ComunidadAutonoma {
     this.estado_registro = estado_registro;
   }
 
-  public Provincia getProvincia() {
+  public Municipio getProvincia() {
     return provincia;
   }
 
-  public void setProvincia(Provincia provincia) {
+  public void setProvincia(Municipio provincia) {
     this.provincia = provincia;
   }
 

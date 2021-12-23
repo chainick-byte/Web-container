@@ -1,4 +1,4 @@
-package com.emptyWeb.context.utils;
+package com.emptyWeb.context.buissnes.model;
 
 import java.util.Date;
 import javax.persistence.Column;
